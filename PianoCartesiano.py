@@ -5,6 +5,7 @@ from crea_assi import assi
 from tkinter import *
 #---------------------------------
 #def
+
 def punto():
     global i, Alfabeto, d_retta
     x_pos = int(x.get())
@@ -31,8 +32,6 @@ def punto():
     T.write(y_pos/10,font =("Arial",12,"normal"))
     d_retta[Alfabeto[i]] = (x_pos, y_pos)
     i += 1
-    
-
 
 def retta():
     global Alfabeto, d_retta, i
@@ -42,7 +41,6 @@ def retta():
     T.goto(d_retta[punto1_pos])
     T.pendown()
     T.goto(d_retta[punto2_pos])
-
 
 #---------------------------------
 #Schermi
