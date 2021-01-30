@@ -3,7 +3,7 @@ from turtle import *
 from crea_assi import assi
 from tkinter import *
 #---------------------------------
-#def
+#Def
 
 def punto():
     global i, Alfabeto, d_retta
@@ -44,6 +44,10 @@ def retta():
 def return_to_axes():
     T.reset()
     assi()
+    x.set("")
+    y.set("")
+    punto1.set("")
+    punto2.set("")
 #---------------------------------
 #Schermi
 schermo2=Tk()
@@ -81,7 +85,7 @@ d_retta = {}
 Alfabeto = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 i = 0
 #---------------------------------
-#notes
+#Notes
 #sotto i button i blocchi vanno messi di +75y
 #sotto le entry i blocchi vanno messi di +105y
 #---------------------------------
