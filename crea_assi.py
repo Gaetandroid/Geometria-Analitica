@@ -1,7 +1,7 @@
 import turtle as T
 from turtle import *
 def assi():
-    T.speed(speed="fast")
+    T.speed(speed="fastest")
     T.hideturtle()
     T.forward(450)
     T.back(900) 
