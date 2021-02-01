@@ -7,30 +7,32 @@ from tkinter import *
 
 def punto():
     global i, Alfabeto, d_retta
-    x_pos = int(x.get())
-    y_pos = int(y.get())
+    x_pos = float(x.get())
+    y_pos = float(y.get())
     x_pos*=10
     y_pos*=10
     T.penup()
     T.goto(x_pos,y_pos)
     T.dot()
-    T.write(Alfabeto[i],font=("Arial",12,"normal"))
+    T.write(Alfabeto[i], font=("Arial", 12, "normal"))
     if i > 25:
         i = 0 
     T.pencolor("red")
     T.pendown()
     T.goto(x_pos, 0)
     T.pencolor("black")
-    T.write(x_pos/10,font=("Arial",12,"normal"))
+    T.write(x_pos/10, font=("Arial", 12, "normal"))
     T.penup()
     T.goto(x_pos, y_pos)
     T.pendown()
     T.pencolor("red")
     T.goto(0, y_pos)
     T.pencolor("black")
-    T.write(y_pos/10,font =("Arial",12,"normal"))
+    T.write(y_pos/10, font =("Arial", 12, "normal"))
     d_retta[Alfabeto[i]] = (x_pos, y_pos)
+    T.penup()
     i += 1
+    sc_crodinate(i, Alfabeto, x_pos, y_pos)
 
 def retta():
     global Alfabeto, d_retta, i
@@ -42,12 +44,21 @@ def retta():
     T.goto(d_retta[punto2_pos])
 
 def return_to_axes():
+    global i, d_retta
+    d_retta={}
+    i=0
     T.reset()
     assi()
     x.set("")
     y.set("")
     punto1.set("")
     punto2.set("")
+
+def sc_crodinate(range, lista, posizione_x, posizione_y):
+    T.goto(500, -40*i+500)
+    T.pencolor("black")
+    a="{}=({}, {})".format(Alfabeto[i-1], posizione_x/10, posizione_y/10)
+    T.write(a, font =("Arial", 20, "normal"))
 #---------------------------------
 #Schermi
 schermo2=Tk()
@@ -62,6 +73,11 @@ x = StringVar()
 y = StringVar()
 punto1=StringVar()
 punto2=StringVar()
+
+#Iterables
+d_retta = {}
+Alfabeto = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+i = 0
 
 x_entry=Entry(schermo2, width=3, textvariable=x, font=('verdana', 50))
 x_entry.place(height=100, x=5, y=80)
@@ -80,10 +96,7 @@ Button(schermo2, background="red", text="Reset", command=return_to_axes, font=('
 #Creazione assi cartesiani
 assi()
 #---------------------------------
-#Iterables
-d_retta = {}
-Alfabeto = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-i = 0
+
 #---------------------------------
 #Notes
 #sotto i button i blocchi vanno messi di +75y
