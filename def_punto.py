@@ -57,7 +57,6 @@ class retta_passante:
         T.penup()
         T.goto(self.dizionario[punto1_pos])
         T.pendown()
+        T.pensize(2)
         T.goto(self.dizionario[punto2_pos])
-
-
-
+        T.pensize(0)
