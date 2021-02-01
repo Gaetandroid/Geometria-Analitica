@@ -40,3 +40,24 @@ class crea_punto:
         T.pencolor("black")
         T.write(self.y_pos/10, font =("Arial", 12, "normal"))
         T.penup()
+    def scritta_punto(self):
+        T.goto(500, -40*self.counter+500)
+        T.pencolor("black")
+        cordinate_punto="{}=({}, {})".format(self.lista[self.counter-1], self.x_pos/10, self.y_pos/10)
+        T.write(cordinate_punto, font =("Arial", 20, "normal"))
+        
+
+class retta_passante:
+    def __init__(self, counter, dizionario):
+        self.counter = counter
+        self.dizionario = dizionario
+    def get_retta(self, valore1, valore2):
+        punto1_pos=valore1.get().upper()
+        punto2_pos=valore2.get().upper()
+        T.penup()
+        T.goto(self.dizionario[punto1_pos])
+        T.pendown()
+        T.goto(self.dizionario[punto2_pos])
+
+
+
