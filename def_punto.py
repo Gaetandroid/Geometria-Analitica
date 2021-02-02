@@ -18,6 +18,8 @@ class crea_punto:
         self.y_pos*=10
         self.dizionario[self.lista[self.counter]] =(self.x_pos, self.y_pos)
         self.counter+=1
+        valore1.set("")
+        valore2.set("")
         return self.counter, self.dizionario
 
     def ds_punto(self):
@@ -60,3 +62,23 @@ class retta_passante:
         T.pensize(2)
         T.goto(self.dizionario[punto2_pos])
         T.pensize(0)
+
+
+class distanza_punti(retta_passante):
+    def __init__(self, counter, dizionario):
+        super().__init__(counter, dizionario)
+        self.counter=counter
+        self.dizionario=dizionario
+    def distanza_2_punti(self, valore1, valore2):
+        punto1_pos=valore1.get().upper()
+        punto2_pos=valore2.get().upper()
+        cordinate_a=self.dizionario[punto1_pos]
+        x_a=cordinate_a[0]/10
+        y_a=cordinate_a[1]/10
+        cordinate_b=self.dizionario[punto2_pos]
+        x_b=cordinate_b[0]/10
+        y_b=cordinate_b[1]/10
+        print(x_a, y_a)
+
+        distanza=(((x_b-x_a)**2)+((y_b-y_a)**2))**(1/2)
+        print(distanza)

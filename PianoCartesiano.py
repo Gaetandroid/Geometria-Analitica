@@ -4,7 +4,7 @@ from tkinter import *
 
 from crea_assi import assi
 from iterables import *
-from def_punto import crea_punto, retta_passante
+from def_punto import crea_punto, retta_passante, distanza_punti
 
 schermo2=Tk()
 schermo2.title("Comandi")
@@ -27,6 +27,14 @@ def retta():
     valore_retta=retta_passante(i, d_retta)
     crea_retta_1=valore_retta.get_retta(punto1, punto2)
 
+'''
+def calcolo_distanza():
+    global i, d_retta
+    valore_retta=distanza_punti(i, d_retta)
+    crea_retta_1=valore_retta.get_retta(punto1, punto2)
+    crea_retta_2=valore_retta.distanza_2_punti(punto1, punto2)
+
+'''
 def reset():
     global i, d_retta
     d_retta={}
