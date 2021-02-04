@@ -63,6 +63,7 @@ class retta_passante:
         T.pensize(2)
         T.goto(self.dizionario[punto2_pos])
         T.pensize(0)
+        
 
 
 class distanza_punti(retta_passante):
@@ -70,16 +71,24 @@ class distanza_punti(retta_passante):
         super().__init__(counter, dizionario)
         self.counter=counter
         self.dizionario=dizionario
+        self.punto1_pos=""
+        self.punto2_pos=""
+        self.distanza=0
     def distanza_2_punti(self, valore1, valore2):
-        punto1_pos=valore1.get().upper()
-        punto2_pos=valore2.get().upper()
-        cordinate_a=self.dizionario[punto1_pos]
+        self.punto1_pos=valore1.get().upper()
+        self.punto2_pos=valore2.get().upper()
+        cordinate_a=self.dizionario[self.punto1_pos]
         x_a=cordinate_a[0]/10
         y_a=cordinate_a[1]/10
-        cordinate_b=self.dizionario[punto2_pos]
+        cordinate_b=self.dizionario[self.punto2_pos]
         x_b=cordinate_b[0]/10
         y_b=cordinate_b[1]/10
-        print(x_a, y_a)
+        self.distanza=(((x_b-x_a)**2)+((y_b-y_a)**2))**(1/2)
+    def scritta_distanza(self, counter_scritta):
+        T.penup()
+        T.goto(500, -40*counter_scritta+500)
+        T.pendown()
+        T.pencolor("black")
+        valore_distanza="{}{}={}".format(self.punto1_pos, self.punto2_pos, self.distanza)
+        T.write(valore_distanza, font =("Arial", 20, "normal"))
 
-        distanza=(((x_b-x_a)**2)+((y_b-y_a)**2))**(1/2)
-        print(distanza)
