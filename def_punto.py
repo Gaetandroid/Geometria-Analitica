@@ -3,13 +3,14 @@ from turtle import *
 from crea_assi import assi
 from tkinter import *
 
-class crea_punto:
+class t_crea_punto:
     def __init__(self, counter, dizionario, lista):
         self.counter=counter
         self.dizionario=dizionario
         self.lista=lista
         self.x_pos=0
         self.y_pos=0
+
     
     def get_punto(self, valore1, valore2):
         self.x_pos = float(valore1.get())
@@ -42,8 +43,8 @@ class crea_punto:
         T.pencolor("black")
         T.write(self.y_pos/10, font =("Arial", 12, "normal"))
         T.penup()
-    def scritta_punto(self):
-        T.goto(500, -40*self.counter+500)
+    def scritta_punto(self, counter_scritta):
+        T.goto(500, -40*counter_scritta+500)
         T.pencolor("black")
         cordinate_punto="{}=({}, {})".format(self.lista[self.counter-1], self.x_pos/10, self.y_pos/10)
         T.write(cordinate_punto, font =("Arial", 20, "normal"))
